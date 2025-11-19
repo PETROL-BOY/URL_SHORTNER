@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - URL Shortener</title>
+    <style>
+      :root {
+        --primary: #6366f1;
+        --dark: #1e1b4b;
+        --light: #f8fafc;
+        --gray: #64748b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background-color: var(--dark);
+        color: var(--light);
+      }
+
+      /* New styles for nav */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(30, 27, 75, 0.8);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--light);
+        text-decoration: none;
+      }
+
+      .form-container {
+        max-width: 400px;
+        margin: 5rem auto;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--gray);
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2.5rem;
+        border-radius: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--light);
+        outline: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      input:focus {
+        border-color: var(--primary);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+      }
+
+      .form-group:before {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+        font-size: 0.875rem;
+        margin-top: 10px;
+      }
+
+      .form-group.name:before {
+        content: "👤";
+      }
+      .form-group.email:before {
+        content: "📧";
+      }
+      .form-group.password:before {
+        content: "🔒";
+      }
+
+      button {
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        background: var(--primary);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #5750b5;
+      }
+
+      .form-footer {
+        margin-top: 1rem;
+        text-align: center;
+        color: var(--gray);
+      }
+
+      .form-footer a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .form-footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .form-container {
+          margin: 4rem auto 2rem;
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        .nav {
+          padding: 0.75rem 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .form-container {
+          margin-top: 3rem;
+        }
+
+        input {
+          padding: 0.6rem 1rem 0.6rem 2rem;
+        }
+
+        .form-group:before {
+          font-size: 0.75rem;
+        }
+
+        button {
+          padding: 0.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="/" class="logo">URL Shortener</a>
+    </nav>
+
+    <div class="form-container">
+      <form class="signup-form" onsubmit="signup(event)">
+        <h1>Create Account</h1>
+        <div class="form-group name">
+          <label for="name">Full name</label>
+          <input type="text" id="name" placeholder="John Doe" required />
+        </div>
+        <div class="form-group email">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+            required
+          />
+        </div>
+        <div class="form-group password">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+        <div class="form-group password">
+          <label for="confirm-password">Confirm password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+        <button type="submit">Sign Up</button>
+        <div class="form-footer">
+          Already have an account? <a href="./login.html">Login</a>
+        </div>
+      </form>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
